@@ -1,0 +1,54 @@
+.nav-bar {
+  width: 50px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  min-height: 500px;
+  background: #8ddfe4;
+  .logo {
+    display: block;
+    text-align: center;
+    position: absolute;
+    margin-top: 15px;
+    font-size: xx-large;
+    width: 100%;
+  }
+
+  nav {
+    display: block;
+    text-align: center;
+    position: absolute;
+    height: 210px;
+    top: 50%;
+    margin-top: -120px;
+    width: 100%;
+    a {
+      font-size: 22px;
+      display: block;
+      line-height: 51px;
+      text-decoration: none;
+      height: 51px;
+      position: relative;
+    }
+  }
+
+  ul {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    display: block;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    li {
+      a {
+        padding: 7px 0;
+        display: block;
+        font-size: 19px;
+        line-height: 16px;
+      }
+    }
+  }
+}
