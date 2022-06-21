@@ -15,25 +15,24 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 const SideBar = () => {
-  //TODO Implement NAV LINK XD
   return (
     <div className="nav-bar">
       <HElement value={"div"} />
       <FontAwesomeIcon className="logo" icon={faHdd} />
       <nav>
         <HElement value={"nav"} />
-        <a>
+        <NavLink exact="true" activeclassname="active" to="/">
           <FontAwesomeIcon icon={faHome} />
-        </a>
-        <a>
+        </NavLink>
+        <NavLink exact="true" activeclassname="active" to="/">
           <FontAwesomeIcon icon={faUser} />
-        </a>
-        <a>
+        </NavLink>
+        <NavLink exact="true" activeclassname="active" to="/">
           <FontAwesomeIcon icon={faNewspaper} />
-        </a>
-        <a>
+        </NavLink>
+        <NavLink exact="true" activeclassname="active" to="contact">
           <FontAwesomeIcon icon={faEnvelope} />
-        </a>
+        </NavLink>
         <HElement value={"/nav"} />
       </nav>
 
