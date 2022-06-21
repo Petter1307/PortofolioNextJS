@@ -15,6 +15,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import "./style.scss";
 const SideBar = () => {
+  //TODO Implement NAV LINK XD
   return (
     <div className="nav-bar">
       <HElement value={"div"} />

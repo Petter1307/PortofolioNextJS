@@ -23,6 +23,12 @@
 .page_home-summary-articles article header {
   color: blue;
 }
+.page_home-description {
+  margin-top: 150px;
+  text-align: center;
+  font-size: 0.5rem;
+}
+
 .page_title {
   text-align: center;
 }/*# sourceMappingURL=style.css.map */
