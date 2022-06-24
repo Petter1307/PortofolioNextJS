@@ -35,20 +35,19 @@ const SideBar = () => {
         </NavLink>
         <HElement value={"/nav"} />
       </nav>
-
       <ul>
         <li>
-          <a>
+          <a href="https://www.facebook.com/" target="#">
             <FontAwesomeIcon icon={faFacebook} />
           </a>
         </li>
         <li>
-          <a>
+          <a href="https://www.linkedin.com/" target="#">
             <FontAwesomeIcon icon={faLinkedin} />
           </a>
         </li>
         <li>
-          <a>
+          <a href="https://www.github.com/" target="#">
             <FontAwesomeIcon icon={faGithub} />
           </a>
         </li>
