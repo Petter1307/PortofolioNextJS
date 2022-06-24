@@ -1,22 +1,20 @@
+import { LabelInput } from "../../Components";
+
 const Contact = () => {
   return (
     <div className="page_contact">
-      <h1>Contact page</h1>
+      <h1 className="page_title">Contact page</h1>
+      <p>INSERT HERE A SHORT TEXT XD</p>
+      <p>PHONE NUMBER PLACEHOLDER </p>
+      <p>EMAIL PLACEHOLDER</p>
+      <p>if(exists(office)) then insert map on the left of the screen</p>
       <form className="contact-form">
         <div className="contact-form_sender_details">
-          <label>
-            <input placeholder="Name" />
-          </label>
-          <label>
-            <input placeholder="Email" />
-          </label>
-          <label>
-            <input placeholder="Regarding" />
-          </label>
+          <LabelInput label="Name " />
+          <LabelInput label="Email " />
+          <LabelInput label="Regarding " />
         </div>
-        <label>
-          <input placeholder="Message" />
-        </label>
+        <LabelInput label="Message " />
       </form>
     </div>
   );

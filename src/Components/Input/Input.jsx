@@ -10,7 +10,7 @@ const Input = ({ value, type, name, placeholder, onChange }) => {
     />
   );
 };
-export default Input;
+
 Input.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
@@ -18,3 +18,20 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
 };
+
+const LabelInput = ({ label, value, type, name, placeholder, onChange }) => {
+  return (
+    <label>
+      {label}
+      <Input
+        value={value}
+        type={type}
+        name={name}
+        placeholder={placeholder}
+        onChange={onChange}
+      />
+    </label>
+  );
+};
+
+export default LabelInput;
