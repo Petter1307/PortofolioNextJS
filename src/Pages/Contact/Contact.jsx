@@ -8,6 +8,7 @@ const Contact = () => {
       <p>PHONE NUMBER PLACEHOLDER </p>
       <p>EMAIL PLACEHOLDER</p>
       <p>if(exists(office)) then insert map on the left of the screen</p>
+      {/* https://blog.logrocket.com/integrating-google-maps-react/ */}
       <form className="contact-form">
         <div className="contact-form_sender_details">
           <LabelInput label="Name " />
