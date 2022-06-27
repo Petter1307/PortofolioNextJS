@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { HElement, ArticleCard } from "../../Components";
+import { HElement, ArticleCard, ProjectCard } from "../../Components";
 const Home = () => {
   useEffect(() => {
     console.log("xd");
@@ -13,6 +13,7 @@ const Home = () => {
           <div className="page_home-summary-articles">
             <h1>Articles</h1>
             <ArticleCard title="Hehe" body="XDAKLSDJ alsdjasdjk salkd " />
+            <ArticleCard title="Hehe" body="XDAKLSDJ alsdjasdjk salkd " />
             <ArticleCard
               title="Title 2"
               body="WHy I did`nt installed lorem yet ? I dunno"
@@ -20,21 +21,9 @@ const Home = () => {
           </div>
           <div className="page_home-summary-articles">
             <h1>Projects</h1>
-            <article>
-              <header>Lorem*4</header>
-              <hr />
-              <p>SDSD</p>
-            </article>
-            <article>
-              <header>Lorem*4</header>
-              <hr />
-              <p>SDSD</p>
-            </article>
-            <article>
-              <header>Lorem*4</header>
-              <hr />
-              <p>SDSD</p>
-            </article>
+            <ProjectCard />
+            <ProjectCard />
+            <ProjectCard />
           </div>
         </div>
         <div className="page_home-description">
