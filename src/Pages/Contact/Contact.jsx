@@ -16,6 +16,7 @@ const Contact = () => {
           <LabelInput label="Regarding " />
         </div>
         <LabelInput label="Message " />
+        <button>Submit</button>
       </form>
     </div>
   );

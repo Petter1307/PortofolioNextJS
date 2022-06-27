@@ -1,8 +1,13 @@
 import PropTypes from "prop-types";
-const ArticleCard = ({ tilte, body }) => {
+import { useEffect } from "react";
+
+// eslint-disable-next-line react/prop-types
+const ArticleCard = ({ title, body }) => {
+  useEffect(() => {}, []);
   return (
     <article className="article-card">
-      <header>{tilte}</header>
+      <header>{title}</header>
+      <hr />
       <p>{body}</p>
     </article>
   );

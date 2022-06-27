@@ -24,6 +24,7 @@ ProjectCard.protoTypes = {
 ProjectCard.defaultProps = {
   title: "Titlu",
   gitlink: "https://github.com/",
+  // eslint-disable-next-line max-len
   body: "THIS IS THE BODY PROP WHY THE FUKC DID YOU SEND THIS AS EMPTY? TELL FFS SOMETHING ABOUT THIS FKING PROJECT",
 };
 
