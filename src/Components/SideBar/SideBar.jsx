@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import HElement from "../HtmlTagsText/HtmlElements";
 import {
   faFacebook,
