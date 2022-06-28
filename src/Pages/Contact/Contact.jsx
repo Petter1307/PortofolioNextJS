@@ -1,6 +1,6 @@
-import { useCallback, useState } from "react";
+import { useState } from "react";
 import { LabelInput } from "../../Components";
-// const initialData = ;
+
 const Contact = () => {
   const [submitData, setsubmitData] = useState({
     name: "",
@@ -8,34 +8,16 @@ const Contact = () => {
     regarding: "",
     message: "",
   });
-  // const handleSubmit = ({ name, email, regarding, message }) => {
-  //   setsubmitData({ name, email, regarding, message });
-  // };
-  const { name, email, regarding, message } = submitData;
-  const onSubmit = useCallback((data) => {
-    console.log(data.name, data.message);
-  }, []);
-
-  const handleInputChange = useCallback(
-    (key) => (value) => {
-      setsubmitData({ ...submitData, [key]: value });
-    },
-    []
-  );
-
-  // const handleInputChange = (key) => (value) => {
-  //   setsubmitData({ ...submitData, [key]: [value] });
-  // };
-  // const handleInputChange = (v) => {
-  //   console.log(v);
-  // };
-  const handleSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      onSubmit(submitData);
-    },
-    [submitData, onSubmit]
-  );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    setsubmitData({
+      name: data.get("name"),
+      email: data.get("email"),
+      regarding: data.get("regarding"),
+      message: data.get("message"),
+    });
+  };
   return (
     <div className="page_contact">
       <h1 className="page_title">Contact page</h1>
@@ -46,16 +28,20 @@ const Contact = () => {
       {/* https://blog.logrocket.com/integrating-google-maps-react/ */}
       <form onSubmit={handleSubmit} className="contact-form">
         <div className="contact-form_sender_details">
-          <LabelInput label="Name " onChange={handleInputChange("name")} />
-          <LabelInput label="Email " onChange={handleInputChange("email")} />
-          <LabelInput
-            label="Regarding "
-            onChange={handleInputChange("regarding")}
-          />
+          <LabelInput label="Name " name="name" />
+          <LabelInput label="Email " name="email" />
+          <LabelInput label="Regarding " name="regarding" />
         </div>
-        <LabelInput label="Message " onChange={handleInputChange("message")} />
+        <LabelInput label="Message " name="message" />
         <button>Submit</button>
       </form>
+      <button
+        onClick={() => {
+          console.log(submitData);
+        }}
+      >
+        Console log submit data
+      </button>
     </div>
   );
 };
