@@ -17,3 +17,4 @@ function App() {
 }
 
 export default App;
+// Admin path is temporarry. It will be protected route someday
