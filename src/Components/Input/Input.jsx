@@ -18,7 +18,9 @@ Input.propTypes = {
   placeholder: PropTypes.string,
   onChange: PropTypes.func,
 };
-
+Input.defaultProps = {
+  type: "text",
+};
 const LabelInput = ({ label, value, type, name, placeholder, onChange }) => {
   return (
     <label>
