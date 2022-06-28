@@ -27,7 +27,7 @@ const SideBar = () => {
         <NavLink exact="true" activeclassname="active" to="/admin">
           <FontAwesomeIcon icon={faUser} />
         </NavLink>
-        <NavLink exact="true" activeclassname="active" to="/">
+        <NavLink exact="true" activeclassname="active" to="/login">
           <FontAwesomeIcon icon={faNewspaper} />
         </NavLink>
         <NavLink exact="true" activeclassname="active" to="contact">
