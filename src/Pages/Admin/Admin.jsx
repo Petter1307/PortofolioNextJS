@@ -1,7 +1,10 @@
+import { Navigate, useNavigate } from "react-router-dom";
 import { ArticleCard, ProjectCard } from "../../Components";
-
+import useAuth from "../../Hooks/useAuth";
 /* eslint-disable max-len */
 const Admin = () => {
+  const { logout } = useAuth();
+  const navigate = useNavigate;
   return (
     <>
       <h1 className="page_title">Boss page</h1>
@@ -20,6 +23,14 @@ const Admin = () => {
         <button>Hide</button>
         <button>Post</button>
       </div>
+      <button
+        onClick={() => {
+          logout();
+          <Navigate to="/" replace={true} />;
+        }}
+      >
+        Log out
+      </button>
     </>
   );
 };

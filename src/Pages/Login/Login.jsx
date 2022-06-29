@@ -1,19 +1,15 @@
-import { useCallback, useState } from "react";
+import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { LabelInput } from "../../Components";
-import useAuth from "../../hooks/useAuth";
-
-const Login = () => {
-  const [data, setData] = useState({
-    username: "",
-    pass: "",
-  });
-  const { login } = useAuth();
+// import useAuth from "../../hooks/useAuth";
+import useAuth from "../../Hooks/useAuth";
+const Login = ({ submit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const data = new FormData(e.target);
     console.log(data.get("username"));
     console.log(data.get("password"));
+    submit({ username: data.get("username"), pass: data.get("password") });
   };
   return (
     <>
@@ -26,20 +22,20 @@ const Login = () => {
   );
 };
 
-// const Auth = () => {
-//   const navigate = useNavigate();
-//   console.log(useAuth());
-//   const { login } = useAuth();
-//   const handleSubmit = useCallback(({ username, pass }) => {
-//     console.log(login);
-//     login({ username, pass });
-//     navigate("/admin", { replace: true });
-//   }, []);
-//   return (
-//     <>
-//       <Login submit={handleSubmit} />
-//     </>
-//   );
-// };
+const Auth = () => {
+  const navigate = useNavigate();
+  console.log(useAuth());
+  const { login } = useAuth();
+  const handleSubmit = useCallback(({ username, pass }) => {
+    console.log(login);
+    login({ username, pass });
+    navigate("/admin", { replace: true });
+  }, []);
+  return (
+    <>
+      <Login submit={handleSubmit} />
+    </>
+  );
+};
 
-export default Login;
+export default Auth;
