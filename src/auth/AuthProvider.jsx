@@ -1,17 +1,17 @@
 import { createContext } from "react";
-import authLocalStore from "../hooks/authLocalStore";
+import { authLocalStore } from "../hooks";
 
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = authLocalStore("user", null);
-  const login = async (data) => {
+  const login = (data) => {
     setAuthData({
       authed: true,
       userData: data,
     });
   };
-  const logout = async () => {
+  const logout = () => {
     setAuthData({
       authed: false,
       userData: {},
