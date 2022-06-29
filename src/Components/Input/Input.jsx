@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-const Input = ({ value, type, name, placeholder, onChange }) => {
+export const Input = ({ value, type, name, placeholder, onChange }) => {
   return (
     <input
       type={type}
@@ -21,7 +21,14 @@ Input.propTypes = {
 Input.defaultProps = {
   type: "text",
 };
-const LabelInput = ({ label, value, type, name, placeholder, onChange }) => {
+export const LabelInput = ({
+  label,
+  value,
+  type,
+  name,
+  placeholder,
+  onChange,
+}) => {
   return (
     <label>
       {label}
@@ -36,4 +43,4 @@ const LabelInput = ({ label, value, type, name, placeholder, onChange }) => {
   );
 };
 
-export default LabelInput;
+// export default LabelInput;

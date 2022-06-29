@@ -1,45 +1,76 @@
 import { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { LabelInput } from "../../Components";
-import useAuth from "../../hooks/useAuth";
-
-const Login = () => {
-  const [data, setData] = useState({
-    username: "",
-    pass: "",
-  });
-  const { login } = useAuth();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const data = new FormData(e.target);
-    console.log(data.get("username"));
-    console.log(data.get("password"));
-  };
+import { Input } from "../../Components/Input/Input";
+import { useAuth } from "../../Hooks";
+const InputLabel = ({ label, type, value, onChange }) => {
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <LabelInput label="Username" name="username" />
-        <LabelInput label="Password" type="password" name="password" />
-        <button>Login</button>
+      <label>
+        {label}
+        <Input type={type} value={value} onChange={onChange} />
+      </label>
+    </>
+  );
+};
+
+const Login = ({ onSubmit }) => {
+  const [data, setData] = useState({
+    email: "test@test.com",
+    password: "passwordxdd",
+    username: "up23",
+  });
+  const { email, password, username } = data;
+  const handleInputChange = useCallback(
+    (key) => (value) => {
+      setData({ ...data, [key]: value });
+    },
+    []
+  );
+  const handleSumbit = useCallback(
+    (e) => {
+      e.preventDefault();
+      onSubmit(data);
+    },
+    [data, onSubmit]
+  );
+  return (
+    <>
+      <form style={{ display: "grid" }} onSubmit={handleSumbit}>
+        <InputLabel
+          label="Username:"
+          value={username}
+          onChange={handleInputChange("username")}
+        />
+        <InputLabel
+          label="Email:"
+          type="email"
+          value={email}
+          onChange={handleInputChange("email")}
+        />
+        <InputLabel
+          type="password"
+          label="Password: "
+          value={password}
+          onChange={handleInputChange("password")}
+        />
+        <button>Submit</button>
       </form>
     </>
   );
 };
 
-// const Auth = () => {
-//   const navigate = useNavigate();
-//   console.log(useAuth());
-//   const { login } = useAuth();
-//   const handleSubmit = useCallback(({ username, pass }) => {
-//     console.log(login);
-//     login({ username, pass });
-//     navigate("/admin", { replace: true });
-//   }, []);
-//   return (
-//     <>
-//       <Login submit={handleSubmit} />
-//     </>
-//   );
-// };
+const Auth = () => {
+  const navigate = useNavigate();
+  const { login } = useAuth();
+  const handleSubmit = useCallback((data) => {
+    login(data);
+    navigate("/", { replace: true });
+  }, []);
+  return (
+    <div>
+      <Login onSubmit={handleSubmit}></Login>
+    </div>
+  );
+};
 
-export default Login;
+export default Auth;

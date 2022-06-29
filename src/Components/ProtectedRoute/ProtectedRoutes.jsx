@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../../hooks";
+import { useAuth } from "../../Hooks";
 const ProtectedRoute = ({ children }) => {
   const { authed } = useAuth() || false;
   if (!authed) {

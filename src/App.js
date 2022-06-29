@@ -1,6 +1,6 @@
 import "./App.css";
 import { Layout, ProtectedRoute } from "./Components";
-import { Home, Contact, Admin, Login } from "./Pages";
+import { Home, Contact, Admin, Auth } from "./Pages";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Auth />} />
           <Route
             path="/admin"
             element={
