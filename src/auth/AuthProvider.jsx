@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import authLocalStore from "../Hooks/authLocalStore";
+import authLocalStore from "../hooks/authLocalStore";
 const AuthContext = createContext();
 
 const AuthProvider = ({ children }) => {

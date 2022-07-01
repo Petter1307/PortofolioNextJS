@@ -1,9 +1,9 @@
 import "./App.css";
 import { Layout, ProtectedRoute } from "./Components";
-import { Home, Contact, Admin, Auth } from "./Pages";
+import { Home, Contact, Admin } from "./Pages";
 import { Routes, Route } from "react-router-dom";
-import { AuthProvider } from "./Auth/AuthProvider";
-
+import { AuthProvider } from "./auth/AuthProvider";
+import Auth from "./Pages/Login/Login";
 function App() {
   return (
     <div className="App">

@@ -2,7 +2,7 @@ import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import { LabelInput } from "../../Components";
 // import useAuth from "../../hooks/useAuth";
-import useAuth from "../../Hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 const Login = ({ submit }) => {
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,6 +1,6 @@
 import { Navigate, useNavigate } from "react-router-dom";
 import { ArticleCard, ProjectCard } from "../../Components";
-import useAuth from "../../Hooks/useAuth";
+import useAuth from "../../hooks/useAuth";
 /* eslint-disable max-len */
 const Admin = () => {
   const { logout } = useAuth();
