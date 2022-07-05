@@ -1,5 +1,5 @@
-import { useCallback } from 'react';
-// import { useRouter } from 'next/dist/client/router';
+import { useCallback, useEffect } from 'react';
+import { useRouter } from 'next/dist/client/router';
 import { PageLayout, LabelInput } from '../../components';
 import useAuth from '../../hooks/useAuth';
 
@@ -8,8 +8,6 @@ const Login = ({ submit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     const data = new FormData(e.target);
-    console.log(data.get('username'));
-    console.log(data.get('password'));
     submit({ username: data.get('username'), pass: data.get('password') });
   };
   return (
@@ -24,12 +22,17 @@ const Login = ({ submit }) => {
 };
 
 const Auth = () => {
-  console.log(useAuth());
-  const { login } = useAuth();
+  const { login, authed } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    // eslint-disable-next-line no-unused-expressions
+    authed ? router.push('/admin') : router.push('/login');
+  }, []);
 
   const handleSubmit = useCallback(({ username, pass }) => {
-    console.log(login);
     login({ username, pass });
+    router.push('/admin');
   }, []);
 
   return <Login submit={handleSubmit} />;

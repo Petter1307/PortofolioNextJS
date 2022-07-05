@@ -8,7 +8,7 @@ const Admin = () => {
   const { authed, logout } = useAuth();
   useEffect(() => {
     // eslint-disable-next-line no-unused-expressions
-    !authed ? router.push('/') : router.push('/admin');
+    !authed ? router.push('/login') : router.push('/admin');
   }, []);
   return (
     <>

@@ -1,10 +1,10 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
-/* eslint-disable react/prop-types */
-// export { default as SideBar } from "./SideBar";
+import React from 'react';
+
+import Link from 'next/link';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { NavLink } from 'react-router-dom';
-// import HElement from '../HtmlTagsText/HtmlElements';
+
 import {
   faFacebook,
   faLinkedin,
@@ -19,7 +19,11 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { HElement } from '../HtmlTagsText';
 
-const SideBar = ({ children }) => {
+type SideBarProps = {
+  children: React.ReactNode;
+};
+
+export const SideBar: React.FC<SideBarProps> = ({ children }) => {
   return (
     <>
       <div className="nav-bar">
@@ -27,18 +31,27 @@ const SideBar = ({ children }) => {
         <FontAwesomeIcon className="logo" icon={faHdd} />
         <nav>
           <HElement value="nav" />
-          <a href="/">
-            <FontAwesomeIcon icon={faHome} />
-          </a>
-          <a href="/login">
-            <FontAwesomeIcon icon={faUser} />
-          </a>
-          <a href="/admin">
-            <FontAwesomeIcon icon={faNewspaper} />
-          </a>
-          <a href="/contact">
-            <FontAwesomeIcon icon={faEnvelope} />
-          </a>
+
+          <div className="nav-icon">
+            <Link href="/">
+              <FontAwesomeIcon icon={faHome} />
+            </Link>
+          </div>
+          <div className="nav-icon">
+            <Link href="/login" target="_blank">
+              <FontAwesomeIcon icon={faUser} />
+            </Link>
+          </div>
+          <div className="nav-icon">
+            <Link href="/admin">
+              <FontAwesomeIcon icon={faNewspaper} />
+            </Link>
+          </div>
+          <div className="nav-icon">
+            <Link href="/contact">
+              <FontAwesomeIcon icon={faEnvelope} />
+            </Link>
+          </div>
           <HElement value="/nav" />
         </nav>
         <ul>
@@ -65,4 +78,4 @@ const SideBar = ({ children }) => {
   );
 };
 
-export default SideBar;
+// export default SideBar;

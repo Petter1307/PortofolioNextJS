@@ -5,6 +5,9 @@ const nextConfig = {
   experimental: {
     outputStandalone: true,
   },
+  images: {
+    domains: ['place-hold.it'],
+  },
 };
 
 module.exports = nextConfig;
