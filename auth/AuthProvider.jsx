@@ -6,6 +6,7 @@ const AuthContext = createContext();
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
   const [authData, setAuthData] = useLocalStore('user', null);
+
   const login = data => {
     setAuthData({
       authed: true,
