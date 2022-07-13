@@ -1,5 +1,5 @@
 import Home from './home';
-import { DataProvider } from '../localprovider/DataProvider';
+import { DataProvider } from '../providers/DataProvider';
 
 const IndexPage = () => {
   return (

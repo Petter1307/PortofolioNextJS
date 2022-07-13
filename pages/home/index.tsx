@@ -68,8 +68,8 @@ const Home = () => {
     // }
     // console.log(data);
     initData();
-    setRe(data.repos);
-    setProfileData(data.profileData);
+    // setRe(data.repos);
+    // setProfileData(data.profileData);
   }, []);
   return (
     <>

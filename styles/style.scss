@@ -6,14 +6,16 @@
   &_home {
     &-summary {
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: row wrap;
+      align-items: flex-start;
+      max-height: 50%;
       &-projects {
         margin: 0 auto;
         display: flex;
         flex-flow: column wrap;
         article {
           max-width: 350px;
-          max-height: 200px;
+          max-height: 70%;
           flex: 1;
           margin: 2px;
           border: 2px solid black;
@@ -24,30 +26,30 @@
           }
         }
       }
-    }
-    &-profile {
-      min-width: auto;
-      min-height: fit-content;
-      display: flex;
-      flex-flow: row nowrap;
-      border: 2px solid black;
-      border-radius: 10px;
-      margin-top: 150px;
-      text-align: center;
-      font-size: 1rem;
-      &-text {
-        border-left: 1px solid black;
-        padding-left: 10px;
-        padding-right: 10px;
-        text-align: left;
-      }
-      img {
-        border-radius: 50%;
-        margin: auto auto;
-        object-fit: contain;
-      }
-      h3 {
+      &-profile {
+        min-width: auto;
+        min-height: fit-content;
+        display: flex;
+        flex-flow: row nowrap;
+        border: 2px solid black;
+        border-radius: 10px;
+        margin-top: 150px;
+        text-align: center;
         font-size: 1rem;
+        &-text {
+          border-left: 1px solid black;
+          padding-left: 10px;
+          padding-right: 10px;
+          text-align: left;
+        }
+        img {
+          border-radius: 50%;
+          margin: auto auto;
+          object-fit: contain;
+        }
+        h3 {
+          font-size: 1rem;
+        }
       }
     }
   }

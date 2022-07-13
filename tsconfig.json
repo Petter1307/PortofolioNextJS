@@ -30,8 +30,8 @@
     "components/SideBar/index.jsx",
     "components/PageLayout/index.jsx",
     "pages/Contact/index.jsx",
-    "localprovider/DataProvider.jsx",
-    "localprovider/DataProvider.jsx",
+    "providers/DataProvider.jsx",
+    "providers/DataProvider.jsx",
     "pages/index.jsx"
   ],
   "exclude": ["node_modules"]

@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { createContext } from 'react';
-import useLocalStore from '../hooks/authLocalStore';
+import usePersistStorage from '../hooks/authLocalStore';
 
 const DataContext = createContext();
 
@@ -14,7 +14,7 @@ const initialData = {
 
 // eslint-disable-next-line react/prop-types
 const DataProvider = ({ children }) => {
-  const [storedData, setStoredData] = useLocalStore('profile', initialData);
+  const [storedData, setStoredData] = usePersistStorage(initialData, 'profile');
 
   const setData = inputData => {
     setStoredData({ stored: true, data: inputData });

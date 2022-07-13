@@ -1,11 +1,11 @@
 import { createContext } from 'react';
-import useLocalStore from '../hooks/authLocalStore';
+import usePersistStorage from '../hooks/authLocalStore';
 
 const AuthContext = createContext();
 
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
-  const [authData, setAuthData] = useLocalStore('user', null);
+  const [authData, setAuthData] = usePersistStorage(null, 'user');
 
   const login = data => {
     setAuthData({

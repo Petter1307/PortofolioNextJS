@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { DataContext } from '../localprovider/DataProvider';
+import { DataContext } from '../providers/DataProvider';
 
 const useData = () => useContext(DataContext);
 export default useData;
