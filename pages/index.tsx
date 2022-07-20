@@ -1,4 +1,4 @@
-import Home from './home';
+import Home from './home/index';
 import { DataProvider } from '../providers/DataProvider';
 
 const IndexPage = () => {
