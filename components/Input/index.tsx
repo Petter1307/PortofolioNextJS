@@ -1,13 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
-
-type InputProp = {
-  type: string;
-  name: string;
-  value: string;
-  placeholder: string;
-  onChange: () => void;
-};
+import { InputProp } from '../types/inputType';
 
 export const Input: React.FC<InputProp> = ({
   type,
@@ -56,6 +49,20 @@ export const LabelInput: React.FC<LabelInputProps> = ({
       />
     </label>
   );
+};
+
+export const InputWithLabel = (
+  Component: React.FC<InputProp>,
+  label: string
+) => {
+  return (props: InputProp) => {
+    return (
+      <label>
+        {label}
+        <Component {...props} />;
+      </label>
+    );
+  };
 };
 // export const LabelInput
 // type InputProp = {
