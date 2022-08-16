@@ -8,18 +8,6 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { ProjectCard, HElement, PageLayout } from '../../components';
 import { Repo } from '../../types/types';
 
-// export async function getStaticProps() {
-//   const profileRes = await fetch('https://api.github.com/users/petter1307 ');
-//   const profileData = profileRes.json();
-//   const repoRes = await fetch('https://api.github.com/users/petter1307/repos');
-//   const reposData = repoRes.json();
-//   return {
-//     props: {
-//       profileData,
-//       repoList: reposData,
-//     },
-//   };
-// }
 // @ts-ignore
 const Home = ({ profileData, reposList }) => {
   return (
@@ -73,17 +61,3 @@ const Home = ({ profileData, reposList }) => {
 };
 
 export default Home;
-
-// const array: RepoItems = [];
-// data.map((obj: Repo) => {
-//   array.push(obj);
-// });
-// const array: RepoItems = [];
-//       data.map((obj: Repo) => {
-//         array.push({
-//           id: obj.id,
-//           name: obj.name,
-//           url: obj.url,
-//           updated_at: obj.updated_at,
-//         });
-//       });
