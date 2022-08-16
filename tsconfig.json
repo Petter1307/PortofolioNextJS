@@ -32,7 +32,8 @@
     "pages/Contact/index.jsx",
     "providers/DataProvider.jsx",
     "providers/DataProvider.jsx",
-    "pages/index.jsx"
+    "pages/index.jsx",
+    "pages/home/index.jsx"
   ],
   "exclude": ["node_modules"]
 }
