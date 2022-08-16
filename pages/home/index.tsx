@@ -1,30 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable no-plusplus */
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import axios from 'axios';
 import { ProjectCard, HElement, PageLayout } from '../../components';
 import { getUserData } from '../../api/github';
-
-interface Data {
-  name?: string;
-  company?: string;
-  followers?: number;
-  html_url?: string;
-  avatar?: string;
-}
-
-interface Repo {
-  id?: number;
-  name?: string;
-  updated_at?: string;
-  url?: string;
-}
-
-type RepoItems = Array<Repo>;
+import { Repo, Data, RepoItems } from '../../types/types';
 
 const Home = () => {
-  const getUserRepo = async () => {
+  const getUserRepo = useCallback(async () => {
     try {
       const response = await axios.get(
         'https://api.github.com/users/petter1307/repos'
@@ -45,35 +30,17 @@ const Home = () => {
       console.log(error);
       return [];
     }
-  };
-  const [profile, setProfile] = useState<Data>({
-    name: '',
-    company: '',
-    followers: 0,
-    html_url: '',
-    avatar: '',
-  });
-  const [repos, setRepos] = useState<RepoItems>([
-    {
-      id: 0,
-      name: '',
-      updated_at: '',
-      url: '',
-    },
-  ]);
+  }, []);
+  const [profile, setProfile] = useState<Data>();
+  const [repos, setRepos] = useState<RepoItems>();
   useEffect(() => {
-    console.log('xd');
     getUserData().then(resp => {
-      setProfile({
-        name: resp.name,
-        company: resp.company,
-        followers: resp.followers,
-        html_url: resp.html_url,
-        avatar: resp.avatar,
+      setProfile(prof => {
+        return { ...prof, ...resp };
       });
     });
     getUserRepo().then(data => {
-      setRepos(data);
+      setRepos(old => data);
     });
   }, []);
 
@@ -83,22 +50,22 @@ const Home = () => {
       <PageLayout name="home" title="Home">
         <div className="page_home-summary">
           <div className="page_home-summary-profile">
-            <img alt="place" src={profile.avatar} width="100" height="100" />
+            <img alt="place" src={profile?.avatar} width="100" height="100" />
             <div className="page_home-summary-profile-text">
               <h1>
-                {profile.name}
-                <a href={profile.html_url} target="#">
+                {profile?.name}
+                <a href={profile?.html_url} target="#">
                   <FontAwesomeIcon icon={faGithub} />
                 </a>
               </h1>
               <hr />
-              <h3>{`Followers:  ${profile.followers}`}</h3>
-              <h3>Company: {profile.company}</h3>
+              <h3>{`Followers:  ${profile?.followers}`}</h3>
+              <h3>Company: {profile?.company}</h3>
             </div>
           </div>
           <div className="page_home-summary-projects">
             <h1>Projects</h1>
-            {repos.map((repo: Repo) => (
+            {repos?.map((repo: Repo) => (
               <ProjectCard
                 title={repo.name}
                 link={repo.url}
