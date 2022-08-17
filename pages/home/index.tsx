@@ -33,14 +33,6 @@ const Home = ({ profileData, reposList }) => {
               <h3>{`Followers:  ${profileData?.followers}`}</h3>
               <h3>Company: {profileData?.company}</h3>
             </div>
-            <button
-              type="submit"
-              onClick={() => {
-                getUserDataLocal();
-              }}
-            >
-              xd
-            </button>
           </div>
           <div className="page_home-summary-projects">
             <h1>Projects</h1>
