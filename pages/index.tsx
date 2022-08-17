@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-plusplus */
 
-import { getUserData, getUserRepo } from 'api/github';
+import { getUserDataLocal, getUserRepoLocal } from 'api/github';
 import Home from './home/index';
 import { DataProvider } from '../providers/DataProvider';
 
@@ -17,9 +17,8 @@ const IndexPage = ({ profileData, reposList }) => {
 export default IndexPage;
 
 export async function getStaticProps() {
-  const returnedData = await getUserData();
-  const repoDataList = await getUserRepo();
-
+  const returnedData = await getUserDataLocal();
+  const repoDataList = await getUserRepoLocal();
   return {
     props: {
       profileData: returnedData,

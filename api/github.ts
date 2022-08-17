@@ -2,6 +2,8 @@
 /* eslint-disable no-new-object */
 /* eslint-disable no-plusplus */
 import axios from 'axios';
+import fsPromises from 'fs/promises';
+import path from 'path';
 import { Data, RepoItems } from '../types/types';
 
 const GIT_HUB_URL = 'https://api.github.com/users/petter1307';
@@ -24,6 +26,37 @@ export const getUserData = async () => {
   }
 };
 
+export const getUserDataLocal = async () => {
+  const filePath = path.join(process.cwd(), 'profileData.json');
+  const jsonData = await fsPromises.readFile(filePath);
+  const response = JSON.parse(jsonData.toString());
+  const returnedData: Data = {
+    name: response.name,
+    company: response.company,
+    followers: response.followers,
+    html_url: response.html_url,
+    avatar: response.avatar_url,
+  };
+
+  return returnedData;
+};
+
+export const getUserRepoLocal = async () => {
+  const filePath = path.join(process.cwd(), 'reposData.json');
+  const jsonData = await fsPromises.readFile(filePath);
+  const response = JSON.parse(jsonData.toString());
+  const array: RepoItems = [];
+  for (let i = 0; i < response.length; i++) {
+    array.push({
+      id: response[i].id,
+      name: response[i].name,
+      url: response[i].html_url,
+      updated_at: response[i].updated_at,
+    });
+  }
+  return array;
+};
+
 export const getUserRepo = async () => {
   try {
     const response = await axios.get(PROFILE_REPOS);
@@ -37,7 +70,6 @@ export const getUserRepo = async () => {
         updated_at: listRepos[i].updated_at,
       });
     }
-    console.log(array);
     return array;
   } catch (error) {
     console.log(error);
