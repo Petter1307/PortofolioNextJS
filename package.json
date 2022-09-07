@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "lint": "next lint",
-    "postinstall": "npx husky install && chmod ug+x .husky/* || :"
+    "lint": "next lint"
   },
   "dependencies": {
     "@fortawesome/free-brands-svg-icons": "^6.1.1",

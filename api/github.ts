@@ -41,22 +41,6 @@ export const getUserDataLocal = async () => {
   return returnedData;
 };
 
-export const getUserRepoLocal = async () => {
-  const filePath = path.join(process.cwd(), 'reposData.json');
-  const jsonData = await fsPromises.readFile(filePath);
-  const response = JSON.parse(jsonData.toString());
-  const array: RepoItems = [];
-  for (let i = 0; i < response.length; i++) {
-    array.push({
-      id: response[i].id,
-      name: response[i].name,
-      url: response[i].html_url,
-      updated_at: response[i].updated_at,
-    });
-  }
-  return array;
-};
-
 export const getUserRepo = async () => {
   try {
     const response = await axios.get(PROFILE_REPOS);
@@ -75,4 +59,20 @@ export const getUserRepo = async () => {
     console.log(error);
     return [];
   }
+};
+
+export const getUserRepoLocal = async () => {
+  const filePath = path.join(process.cwd(), 'reposData.json');
+  const jsonData = await fsPromises.readFile(filePath);
+  const response = JSON.parse(jsonData.toString());
+  const array: RepoItems = [];
+  for (let i = 0; i < response.length; i++) {
+    array.push({
+      id: response[i].id,
+      name: response[i].name,
+      url: response[i].html_url,
+      updated_at: response[i].updated_at,
+    });
+  }
+  return array;
 };
