@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-plusplus */
 
-import { getUserData, getUserRepo } from 'api/github';
+import { getUserData, getUserRepo } from '../api/github';
 import Home from './home/index';
 import { DataProvider } from '../providers/DataProvider';
 
